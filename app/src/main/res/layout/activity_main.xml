@@ -25,7 +25,7 @@
             android:layout_height="wrap_content" />
     </androidx.viewpager.widget.ViewPager>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,14 +33,18 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         app:fabCustomSize="50dp"
-        app:srcCompat="@drawable/ic_action_add" />
+        app:srcCompat="@drawable/ic_action_add" />-->
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="79dp"
+        android:layout_width="64dp"
+        android:layout_height="63dp"
+        android:layout_marginLeft="270dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_shape"
         android:onClick="mOnPopupClick"
-        android:text="팝업"
+        android:text="+"
+        android:textSize="30dp"
         app:layout_anchor="@+id/view_pager"
-        app:layout_anchorGravity="center" />
+        app:layout_anchorGravity="bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

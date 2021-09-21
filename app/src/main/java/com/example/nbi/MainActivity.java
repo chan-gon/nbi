@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
 
 import com.example.nbi.ui.main.SectionsPagerAdapter;
 import com.example.nbi.databinding.ActivityMainBinding;
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = binding.fab;
+
+ /*     FloatingActionButton fab = binding.fab;
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,15 +44,14 @@ public class MainActivity extends AppCompatActivity {
                 finish();
 
             }
-        });
+        });*/
     }
     //버튼
     public void mOnPopupClick(View v){
         //데이터 담아서 팝업(액티비티) 호출
         Intent intent = new Intent(this, AddActivity.class);
-        intent.putExtra("data", "Test Popup");
+        //intent.putExtra("data", "Test Popup");
         startActivityForResult(intent, 1);
     }
-
 
 }
