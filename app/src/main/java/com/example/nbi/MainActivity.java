@@ -45,6 +45,34 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });*/
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                // 탭 이동에 따른 버튼 숨기기/보이기
+                Button button = (Button) findViewById(R.id.add_button);
+                if(position == 1 || positionOffset > 0.8){
+                    System.out.println("정산내역 페이지");
+                    button.setVisibility(View.INVISIBLE);
+
+                }
+                else if(positionOffset < 0.2){
+                    System.out.println("N분의일 페이지");
+                    button.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
     }
     //버튼
     public void mOnPopupClick(View v){

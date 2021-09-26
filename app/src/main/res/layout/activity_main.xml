@@ -36,6 +36,7 @@
         app:srcCompat="@drawable/ic_action_add" />-->
 
     <Button
+        android:id="@+id/add_button"
         android:layout_width="64dp"
         android:layout_height="63dp"
         android:layout_marginLeft="270dp"
