@@ -5,8 +5,8 @@
 
     <string name="editDate">날짜수정</string>
     <string name="location">장소</string>
-    <string name="participant">참가자</string>
-    <string name="spend_money">지출금액</string>
+    <string name="participant">참가자(명)</string>
+    <string name="spend_money">지출금액(원)</string>
     <string name="new_calculation">N분의 일</string>
     <string name="history">히스토리</string>
 </resources>

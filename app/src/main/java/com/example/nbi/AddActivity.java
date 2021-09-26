@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -64,11 +66,43 @@ public class AddActivity extends Activity {
     public void onAdd(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("이벤트 테스트").setMessage("확인 버튼 클릭!");
+        EditText spendDate = (EditText) findViewById(R.id.spend_date);
+        EditText location = (EditText) findViewById(R.id.location);
+        EditText spendMoney = (EditText) findViewById(R.id.spend_money);
+        EditText participant = (EditText) findViewById(R.id.participant);
 
-        AlertDialog alertDialog = builder.create();
+        if(location.getText().toString().equals("") || location.getText().toString() == null || location.getText().toString().length() == 0){
+            builder.setMessage("장소를 입력하세요.");
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+            location.requestFocus();
+        }
 
-        alertDialog.show();
+        else if(spendMoney.getText().toString().equals("") || spendMoney.getText().toString() == null || spendMoney.getText().toString().length() == 0){
+            builder.setMessage("지출금액을 입력하세요.");
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+            spendMoney.requestFocus();
+        }
+
+        else if(participant.getText().toString().equals("") || participant.getText().toString() == null || participant.getText().toString().length() == 0){
+            builder.setMessage("참가자를 입력하세요.");
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+            participant.requestFocus();
+        }
+
+        else{
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra("spendDate", spendDate.getText().toString());
+            intent.putExtra("location", location.getText().toString());
+            intent.putExtra("spendMoney", spendMoney.getText().toString());
+            intent.putExtra("participant", participant.getText().toString());
+
+            startActivity(intent);
+
+        }
+
     }
 
     // 취소 버튼 클릭
@@ -83,14 +117,14 @@ public class AddActivity extends Activity {
         finish();
     }
 
-    @Override
+/*    @Override
     public boolean onTouchEvent(MotionEvent event){
         // 바깥 레이어 클릭 시 안닫히게
         if(event.getAction() == MotionEvent.ACTION_OUTSIDE){
             return false;
         }
         return true;
-    }
+    }*/
     
     @Override
     public void onBackPressed(){
